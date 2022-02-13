@@ -10,15 +10,17 @@ public class Task15 {
 				+ "Proin in auctor erat. Curabitur et nisi imperdiet, tincidunt orci in, fringilla ligula. Nunc pulvinar pulvinar diam, ut pretium ligula fringilla cursus. Sed porttitor vulputate justo, quis dictum ex auctor id.\n"
 				+ "Praesent ultricies ligula sed enim dignissim, vel malesuada purus semper. Maecenas luctus non urna id viverra.";
 		
-		
 		System.out.println("Source string:");
 		System.out.println(source);
 		System.out.println();
-		
-		//System.out.println(sortParagraphs(source));
-		//System.out.println(sortSentences(source));
+		System.out.println("Sort by paragraphs:");
+		System.out.println(sortParagraphs(source));
+		System.out.println();
+		System.out.println("Sort by sentences:");
+		System.out.println(sortSentences(source));
+		System.out.println();
+		System.out.println("Sort by character:");
 		System.out.println(sortByCharacter(source, 'e'));
-		
 	}
 	
 	public static String sortParagraphs(String str) {
@@ -75,13 +77,10 @@ public class Task15 {
 		while (matcher.find()) {
 			sentences[count++] = matcher.group().trim();
 		}
-		
 		for (int i = 0; i < sentences.length; i++) {
 			sentences[i] = sortWordsByLength(sentences[i]).toLowerCase();
 		}
-		
 		str = String.join("\n", sentences);
-		
 		return str;
 	}
 	
@@ -132,11 +131,8 @@ public class Task15 {
 		for (int i = 0; i < sentences.length; i++) {
 			sentences[i] = sortWordsByCharacter(sentences[i], c).toLowerCase();
 		}
-		
 		str = String.join("\n", sentences);
-		
 		return str;
-		
 	}
 	
 	public static String sortWordsByCharacter(String str, char c) {
